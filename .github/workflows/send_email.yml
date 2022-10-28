@@ -1,5 +1,5 @@
 name: Send Email
-on: [pull_request, push]
+on: []
 jobs:
   send-email:
     runs-on: ubuntu-latest
