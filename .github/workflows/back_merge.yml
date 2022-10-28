@@ -43,10 +43,10 @@ jobs:
           server_address: smtppro.zoho.in
           server_port: 465
           secure: true
-          username: ${{secrets.MAIL_USERNAME}}
+          username: nithin@getwyld.in
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Back Merge Failed (Master to Staging)
-          to: nithin@getwyld.in,tech@getwyld.in
+          to: nithin@getwyld.in
           from: nithin@getwyld.in
           body: Merge from master to staging not successful due to merge conflicts
   job-merge-master-to-dev:
@@ -74,7 +74,7 @@ jobs:
             echo "merge_error=true"
           else
             echo "merge_error=false" >> $GITHUB_OUTPUT
-            echo "merge_error=false
+            echo "merge_error=false"
             git push
           fi
   email-merge-conflict-2:
