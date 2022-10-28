@@ -7,7 +7,7 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.google.in
+          server_address: smtp.gmail.com
           server_port: 465
           secure: true
           username: nithin127vasishta@gmail.com
