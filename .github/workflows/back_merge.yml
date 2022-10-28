@@ -13,7 +13,7 @@ jobs:
     outputs:
       merge-conflict: ${{ steps.merge-master-staging.outputs.merge_error }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set Git config
       run: |
           git config --local user.email "nithin@getwyld.in"
@@ -58,7 +58,7 @@ jobs:
     outputs:
       merge-conflict: ${{ steps.merge-master-dev.outputs.merge_error }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set Git config
       run: |
           git config --local user.email "nithin@getwyld.in"
