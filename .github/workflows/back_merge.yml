@@ -37,20 +37,19 @@ jobs:
     needs: job-merge-master-to-staging
     if: ${{ needs.job-merge-master-back-to-dev.outputs.merge-conflict }} == "true"
     steps:
-      - name: Sanity check
-        run: |
-          echo "Need to send email"
       - name: Send email
-        uses: devellany/send-mailer@v1.0.2
+        uses: dawidd6/action-send-mail@v3
         with:
-          host: smtp.google.com
-          account: ${{secrets.ACCOUNT}}
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: smtppro.zoho.in
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
-          sender: Github Actions
-          from: ${{secrets.MAIL_ADDRESS}}
-          to: nithin@getwyld.in
           subject: Back Merge Failed (Master to Staging)
+          to: nithin@getwyld.in,tech@getwyld.in
+          from: nithin@getwyld.in
           body: Merge from master to staging not successful due to merge conflicts
+          sender: Github Actions
   job-merge-master-to-dev:
     if: github.event.pull_request.merged == true || github.event_name == 'push'
     timeout-minutes: 2
@@ -86,13 +85,15 @@ jobs:
         run: |
           echo "Need to send email"
       - name: Send email
-        uses: devellany/send-mailer@v1.0.2
+        uses: dawidd6/action-send-mail@v3
         with:
-          host: smtp.google.com
-          account: ${{secrets.ACCOUNT}}
+          connection_url: ${{secrets.MAIL_CONNECTION}}
+          server_address: smtppro.zoho.in
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
+          subject: Back Merge Failed (Master to Staging)
+          to: nithin@getwyld.in,tech@getwyld.in
+          from: nithin@getwyld.in
+          body: Merge from master to staging not successful due to merge conflicts
           sender: Github Actions
-          from: ${{secrets.MAIL_ADDRESS}}
-          to: nithin@getwyld.in
-          subject: Back Merge Failed (Master to Dev)
-          body: Merge from master to dev not successful due to merge conflicts
