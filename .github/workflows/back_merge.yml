@@ -42,6 +42,7 @@ jobs:
         with:
           server_address: smtppro.zoho.in
           server_port: 465
+          secure: true
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Back Merge Failed (Master to Staging)
@@ -70,8 +71,10 @@ jobs:
           export conflicts=$(grep -lr -r -E -- '^<<<<<<<|^>>>>>>>' .)
           if [ -n "$conflicts" ]; then
             echo "merge_error=true" >> $GITHUB_OUTPUT
+            echo "merge_error=true"
           else
             echo "merge_error=false" >> $GITHUB_OUTPUT
+            echo "merge_error=false
             git push
           fi
   email-merge-conflict-2:
@@ -82,12 +85,14 @@ jobs:
       - name: Sanity check
         run: |
           echo "Need to send email"
+          echo ${{ needs.job-merge-master-back-to-dev.outputs.merge-conflict }}
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtppro.zoho.in
           server_port: 465
-          username: ${{secrets.MAIL_USERNAME}}
+          secure: true
+          username: nithin@getwyld.in
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Back Merge Failed (Master to Staging)
           to: nithin@getwyld.in,tech@getwyld.in
