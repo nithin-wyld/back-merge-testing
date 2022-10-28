@@ -1,0 +1,18 @@
+name: Back Merge from Master
+on: [pull_request, push]
+jobs:
+  email-merge-conflict-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtppro.zoho.in
+          server_port: 465
+          secure: true
+          username: nithin@getwyld.in
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Back Merge Failed (Master to Staging)
+          to: nithin@getwyld.in
+          from: nithin@getwyld.in
+          body: Aye !
