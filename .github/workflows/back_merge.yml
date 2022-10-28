@@ -40,7 +40,6 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
           server_address: smtppro.zoho.in
           server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
@@ -49,7 +48,6 @@ jobs:
           to: nithin@getwyld.in,tech@getwyld.in
           from: nithin@getwyld.in
           body: Merge from master to staging not successful due to merge conflicts
-          sender: Github Actions
   job-merge-master-to-dev:
     if: github.event.pull_request.merged == true || github.event_name == 'push'
     timeout-minutes: 2
@@ -87,7 +85,6 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          connection_url: ${{secrets.MAIL_CONNECTION}}
           server_address: smtppro.zoho.in
           server_port: 465
           username: ${{secrets.MAIL_USERNAME}}
@@ -96,4 +93,3 @@ jobs:
           to: nithin@getwyld.in,tech@getwyld.in
           from: nithin@getwyld.in
           body: Merge from master to staging not successful due to merge conflicts
-          sender: Github Actions
