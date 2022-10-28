@@ -7,12 +7,12 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
+          server_address: smtppro.zoho.com
           server_port: 465
           secure: true
-          username: nithin127vasishta@gmail.com
-          password: ${{secrets.MAIL_PASSWORD_GMAIL}}
-          subject: Back Merge Failed (Master to Staging)
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: All good
           to: nithin@getwyld.in
-          from: nithin127vasishta@gmail.com
+          from: nithin@getwyld.in
           body: Aye !
