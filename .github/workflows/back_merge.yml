@@ -25,8 +25,8 @@ jobs:
           git checkout staging
           git pull
           git merge --no-ff master -m "Auto-merge master back to staging"
-          conflicts = "$(grep -lr -r -E -- '^<<<<<<<|^>>>>>>>' .)" || grepExit $?
-          if [ -z "$conflicts" ]
+          export conflicts=$(grep -lr -r -E -- '^<<<<<<<|^>>>>>>>' .)
+          if [ -n "$conflicts" ]; then
             echo "merge_error=true" >> $GITHUB_OUTPUT
           else
             echo "merge_error=false" >> $GITHUB_OUTPUT
@@ -70,8 +70,8 @@ jobs:
           git checkout development
           git pull
           git merge --no-ff master -m "Auto-merge master back to dev"
-          conflicts = "$(grep -lr -r -E -- '^<<<<<<<|^>>>>>>>' .)" || grepExit $?
-          if [ -z "$conflicts" ]
+          export conflicts=$(grep -lr -r -E -- '^<<<<<<<|^>>>>>>>' .)
+          if [ -n "$conflicts" ]; then
             echo "merge_error=true" >> $GITHUB_OUTPUT
           else
             echo "merge_error=false" >> $GITHUB_OUTPUT
