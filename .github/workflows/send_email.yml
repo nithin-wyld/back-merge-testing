@@ -1,0 +1,17 @@
+name: Send Email
+on: [pull_request, push]
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtppro.zoho.in
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Testing
+          to: nithin@getwyld.in
+          from: nithin@getwyld.in
+          body: Testing 123
