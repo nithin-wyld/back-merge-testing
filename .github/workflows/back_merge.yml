@@ -40,10 +40,10 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtppro.zoho.in
+          server_address: smtppro.zoho.com
           server_port: 465
           secure: true
-          username: nithin@getwyld.in
+          username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Back Merge Failed (Master to Staging)
           to: nithin@getwyld.in
@@ -89,10 +89,10 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtppro.zoho.in
+          server_address: smtppro.zoho.com
           server_port: 465
           secure: true
-          username: nithin@getwyld.in
+          username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Back Merge Failed (Master to Staging)
           to: nithin@getwyld.in,tech@getwyld.in
