@@ -1,5 +1,5 @@
 name: Back Merge from Master
-on: [pull_request, push]
+on: [pull_request]
 jobs:
   email-merge-conflict-1:
     runs-on: ubuntu-latest
