@@ -7,12 +7,12 @@ jobs:
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
+          server_address: smtp.zoho.com
+          server_port: 587
           secure: true
-          username: nithin127vasishta@gmail.com
-          password: ${{secrets.MAIL_PASSWORD_GMAIL}}
+          username: nithin@getwyld.in
+          password: ${{secrets.MAIL_PASSWORD}}
           subject: Testing
           to: nithin@getwyld.in
           from: nithin127vasishta@gmail.com
-          body: Testing 123
+          body: Testing 222123
