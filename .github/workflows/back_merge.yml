@@ -64,6 +64,11 @@ jobs:
     needs: job-merge-master-to-dev
     if: ${{ failure() }}
     steps:
+      - name: Check Secret
+        env:
+          password: ${{secrets.MAIL_PASSWORD_TECH}}
+        run: |
+          echo "$password"
       - name: Send email
         uses: dawidd6/action-send-mail@v3
         with:
