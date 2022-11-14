@@ -14,8 +14,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set Git config
       run: |
-          git config --local user.email "nithin@getwyld.in"
-          git config --local user.name "Nithin Vasishta (GHA)"
+          git config --local user.email "tech@getwyld.in"
+          git config --local user.name "Automated (GHA)"
     - name: Merge master back to staging
       id: merge-master-staging
       uses: nithin-wyld/branch-merge@master
@@ -35,8 +35,8 @@ jobs:
           server_address: smtppro.zoho.com
           server_port: 465
           secure: true
-          username: nithin@getwyld.in
-          password: ${{secrets.MAIL_PASSWORD}}
+          username: tech@getwyld.in
+          password: ${{secrets.MAIL_PASSWORD_TECH}}
           subject: Back Merge Failed (Master to Staging)
           to: nithin@getwyld.in
           from: nithin@getwyld.in
@@ -49,8 +49,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set Git config
       run: |
-          git config --local user.email "nithin@getwyld.in"
-          git config --local user.name "Nithin Vasishta (GHA)"
+          git config --local user.email "tech@getwyld.in"
+          git config --local user.name "Automated (GHA)"
     - name: Merge master back to dev
       id: merge-master-dev
       uses: nithin-wyld/branch-merge@master
@@ -70,8 +70,8 @@ jobs:
           server_address: smtppro.zoho.com
           server_port: 465
           secure: true
-          username: nithin@getwyld.in
-          password: ${{secrets.MAIL_PASSWORD}}
+          username: tech@getwyld.in
+          password: ${{secrets.MAIL_PASSWORD_TECH}}
           subject: Back Merge Failed (Master to Dev)
           to: nithin@getwyld.in,tech@getwyld.in
           from: nithin@getwyld.in
